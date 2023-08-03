@@ -1,0 +1,27 @@
+﻿////////////////////
+1. Why is it important that the IReportServiceLifetime class is an Interface?
+
+  Because it allow us to set a contract for multiple classes like IExampleScopedService, IExampleSingletonService, IExampleTransientService. These interfaces inherit the members from the interface IReportServiceLifeTime, so if we want to change the contract we just need to modify one file instead of modifying 3 files, so it facilitates the maintainability of our code.
+
+///////////////////////////////
+2. What are the three types of service lifetimes available for use here? What is the difference between them?
+
+The three types are:
+- ServiceLifetime.Scoped = 1: Specifies that a new instance of the service will be created for each scope. A scope is created around each server request.
+
+- ServiceLifetime.Singleton = 0 : Specifies that a single instance of the service will be created.
+
+- ServiceLifetime.Transient = 2: Specifies that a new instance of the service will be created every time it is requested.
+
+By observing the output we can notice the following behavior:
+- The value of the transient service always change for each service request.
+- The value of the scoped service changes only when the lifetime change, and in this example the server executes 2 service lifetimes requests. 
+- The value of the singleton service is always the same during the time the server is running.
+
+///////////////////////
+3. Using the above information, what do we expect the lifetime is of an instance of a DbContext class injected into an Endpoint method? Into a seed method? 
+
+Into an Endpoint method the lifetime of an instance of the DbContext is scoped, because each endpoint method makes a request from the server, and the instance only exists on each endpoint method.
+
+Into a seed method, from the class example, I can infer that the lifetime is singleton, since it only executes at the begining of we run the application. 
+
