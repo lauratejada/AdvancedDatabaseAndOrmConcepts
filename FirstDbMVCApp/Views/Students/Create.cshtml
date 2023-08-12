@@ -1,0 +1,22 @@
+﻿@model FirstDbMVCApp.Models.ViewModels.CUStudentVM
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>Student</h4>
+<hr />
+<form asp-action="Create" method="post">
+    <label asp-for="Student.FullName"></label>
+    <input asp-for="Student.FullName" />
+    <label asp-for="SelectItems">Select course</label>
+    <select asp-for="SelectedCourseId" asp-items="@Model.SelectItems"></select>
+
+    <input type="submit" value="Add New Student" class="btn btn-primary" />
+</form>
+
+<div>
+    <a asp-action="Index">Back to Index</a>
+</div>
