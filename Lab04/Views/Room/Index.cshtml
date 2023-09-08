@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Lab04.Models.Room>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+﻿
+<h1>Room - Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Capacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Section)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+              <td>
+                  @Html.DisplayFor(modelItem => item.RoomNumber)
+              </td>
+              <td>
+                  @Html.DisplayFor(modelItem => item.Capacity)
+              </td>
+              <td>
+                   @Html.DisplayFor(modelItem => item.Section)
+              </td>
+              <td>
+                  <a asp-action="Edit" asp-route-id="@item.RoomNumber">Edit</a>
+              </td>
+         </tr>
+     
+    }
+    </tbody>
+</table>
