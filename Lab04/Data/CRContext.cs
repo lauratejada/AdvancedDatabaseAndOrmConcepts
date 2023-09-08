@@ -8,7 +8,7 @@ namespace Lab04.Data
     {
         public CRContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Client> Clients { get; set; } = null!;
+        public DbSet<Client> Clients { get; set; } = null!; 
         public DbSet<Room> Rooms { get; set; } = null!;
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Lab04.Data;
 using Lab04.Models;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc; 
 using Microsoft.EntityFrameworkCore;
 
 namespace Lab04.Controllers
